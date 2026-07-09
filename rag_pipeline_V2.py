@@ -4,6 +4,7 @@ import chromadb
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 import os 
+import re
 
 load_dotenv()
 api_key = os.getenv("GROQ")
@@ -11,7 +12,7 @@ llm = ChatGroq(
     model= "llama-3.3-70b-versatile",
     api_key=api_key,
     temperature=0.3)
-client = chromadb.PersistentClient(path="chroma_storage")
+client = chromadb.PersistentClient(path="/tmp/chroma_storage")
 
 def process_pdf(pdf_path,name):
     
