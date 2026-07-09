@@ -1,13 +1,10 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import PyPDFLoader
 import chromadb
-from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 import os 
-import re
 
-load_dotenv()
-api_key = os.getenv("GROQ")
+api_key = st.secrets["GROQ"]
 llm = ChatGroq(
     model= "llama-3.3-70b-versatile",
     api_key=api_key,
