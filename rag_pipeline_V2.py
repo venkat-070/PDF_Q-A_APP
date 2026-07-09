@@ -3,13 +3,14 @@ from langchain_community.document_loaders import PyPDFLoader
 import chromadb
 from langchain_groq import ChatGroq
 import os 
+import streamlit as st
 
 api_key = st.secrets["GROQ"]
 llm = ChatGroq(
     model= "llama-3.3-70b-versatile",
     api_key=api_key,
     temperature=0.3)
-client = chromadb.PersistentClient(path="/tmp/chroma_storage")
+client = chromadb.EphemeralClient()
 
 def process_pdf(pdf_path,name):
     
