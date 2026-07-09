@@ -60,8 +60,3 @@ def ask_question(question,collection_name):
 
     output = llm.invoke(prompt)
     return output , page_no
-
-process_pdf(r"C:\\Users\\Public\\Documents\\Required_files\\David_goggins.pdf", "David_goggins")
-answer, pages = ask_question("Who is the author of this book?", "David_goggins")
-print(answer.content)
-print("Pages:", pages)
